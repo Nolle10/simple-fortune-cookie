@@ -18,4 +18,4 @@ jobs:
         cache-dependency-path: subdir/go.sum
         
     - name: Build
-      run: echo $PATH ; env ; ls -la ; cd backend && go build
+      run: go get github.com/gomodule/redigo/redis && echo $PATH ; env ; ls -la ; cd backend && go build
