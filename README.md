@@ -25,7 +25,7 @@ please proceed to the [01-introduction](./01-introduction.md).
 
 ## Folders
 
-- `backend`: a Go server that serves api requests
+- `backend`: a Go server that serves API requests
 - `frontend`: an HTTP webserver (in Go) that you can view in your browser
 
 ## Eficode Notes
