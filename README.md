@@ -1,7 +1,6 @@
-[![GitHub Super-Linter](https://github.com/Nolle10/simple-fortune-cookie/actions/workflows/linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
-
-
 # Simple Fortune Cookie
+
+[![GitHub Super-Linter](https://github.com/Nolle10/simple-fortune-cookie/actions/workflows/linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
 A project in Go for you to apply all the awesome things
     you've learned at the academy!
