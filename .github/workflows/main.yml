@@ -65,5 +65,3 @@ jobs:
         run: chmod +x ci/build-docker-backend.sh && ci/build-docker-backend.sh
       - name: Push Docker
         run: chmod +x ci/push-docker.sh && ci/push-docker.sh
-      
-    
