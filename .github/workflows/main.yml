@@ -35,5 +35,15 @@ jobs:
         go-version: 1.18
         cache-dependency-path: subdir/go.sum
         
+    - name: Build Backend
+      run: cd backend && go build
+    - name: Build Frontend
+      run: cd frontend && go build
+
     - name: Test Frontend
       run: cd frontend && go test
+    - name: Run Frontend
+      run: cd frontend && go run frontend
+    - name: Run Backend
+      run: cd backend && go run backend
+    
