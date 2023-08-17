@@ -52,7 +52,7 @@ jobs:
       packages: write
     steps:
       - name: Download Code
-        uses: actions/download-artifact@v3
+        uses: actions/setup-go@v4
         with:
           name: Code
           path: .
