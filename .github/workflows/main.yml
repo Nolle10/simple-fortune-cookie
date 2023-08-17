@@ -52,16 +52,25 @@ jobs:
       run: cd frontend && go test
 
   Docker-image:
-    name: Build & Upload Docker Image
+    needs: Build
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
     steps:
-      - name: Checkout Repository
+      - name: check out
         uses: actions/checkout@v3
-      - name: Build Docker Frontend
-        run: chmod +x ci/build-docker-frontend.sh && ci/build-docker-frontend.sh 
-      - name: Build Docker Backend
-        run: chmod +x ci/build-docker-backend.sh && ci/build-docker-backend.sh
-      - name: Push Docker
-        run: chmod +x ci/push-docker.sh && ci/push-docker.sh
+      - name: login
+        uses: docker/login-action@v1
+        with:
+          username: ${{ env.docker_username}}
+          password: ${{ env.docker_password}}
+      - name: Build and push Docker back
+        uses: docker/build-push-action@v4
+        with:
+          context: ./backend
+          push: true
+          tags: nolle10/devops_backend
+      - name: Build and push Docker front
+        uses: docker/build-push-action@v4
+        with:
+          context: ./frontend
+          push: true
+          tags: nolle10/devops_frontend
