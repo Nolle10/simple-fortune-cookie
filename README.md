@@ -1,5 +1,7 @@
 # Simple Fortune Cookie
 
+[![GitHub Super-Linter](https://github.com/Nolle10/simple-fortune-cookie/actions/workflows/linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
+
 A project in Go for you to apply all the awesome things
     you've learned at the academy!
 
@@ -23,7 +25,7 @@ please proceed to the [01-introduction](./01-introduction.md).
 
 ## Folders
 
-- `backend`: a Go server that serves api requests
+- `backend`: a Go server that serves API requests
 - `frontend`: an HTTP webserver (in Go) that you can view in your browser
 
 ## Eficode Notes
