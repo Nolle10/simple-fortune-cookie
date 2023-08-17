@@ -10,9 +10,12 @@ jobs:
     steps:
     - name: Cache
       uses: actions/cache@v1.2.1
+      env:
+        cache-name: cache-node-modules
       with:
         path: cd caches
-        
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
     - name: Checkout Repository
       uses: actions/checkout@v3
 
@@ -31,11 +34,6 @@ jobs:
     needs: [Build]
     runs-on: ubuntu-latest
     steps:
-    - name: Cache
-      uses: actions/cache@v1.2.1
-      with:
-        path: cd caches
-
     - name: Checkout Repository
       uses: actions/checkout@v3
 
