@@ -54,6 +54,7 @@ jobs:
   Docker-image:
     name: Build & Upload Docker Image
     runs-on: ubuntu-latest
+    needs: [Build]
     permissions:
       packages: write
     steps:
