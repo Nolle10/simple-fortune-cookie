@@ -1,8 +1,12 @@
 name: Automerge
 
 on:
+  pull_request:
+    types: opened
   # Try enabling auto-merge for all open pull requests. (Only recommended for testing.)
   push:
+
+
 
   # Try enabling auto-merge for all open pull requests.
   schedule:
@@ -39,12 +43,13 @@ on:
         required: false
 
 jobs:
-  add_label:
+  add_labels:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      - name: add label
+
+      - name: add labels
         uses: actions-ecosystem/action-add-labels@v1
         if: ${{ startsWith(github.event.comment.body, '/add-labels') }}
         with:
