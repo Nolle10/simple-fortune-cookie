@@ -4,6 +4,12 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+    
+env: # Set the secret as an input
+  docker_username: ${{ github.actor }}
+  docker_password: ${{ secrets.GITHUB_TOKEN }}
+  GIT_COMMIT: ${{ github.sha }}
+  
 jobs:
   Build:
     runs-on: ubuntu-latest
@@ -42,8 +48,20 @@ jobs:
       with:
         go-version: 1.18
         cache-dependency-path: subdir/go.sum
-        
-
     - name: Test Frontend
       run: cd frontend && go test
-    
+
+  Docker-image:
+    name: Build & Upload Docker Image
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Build Docker Frontend
+        run: chmod +x ci/build-docker-frontend.sh && ci/build-docker-frontend.sh 
+      - name: Build Docker Backend
+        run: chmod +x ci/build-docker-backend.sh && ci/build-docker-backend.sh
+      - name: Push Docker
+        run: chmod +x ci/push-docker.sh && ci/push-docker.sh
