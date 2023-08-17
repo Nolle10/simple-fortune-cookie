@@ -1,21 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kompose.cmd: kompose convert -f docker-compose.yml
-    kompose.version: 1.30.0 (9d8dcb518)
-  creationTimestamp: null
   labels:
-    io.kompose.service: frontend
+    run: frontend
   name: frontend
-  namespace: student-12
 spec:
   ports:
-    - name: "8080"
-      port: 8080
+    - port: 8080
+      protocol: TCP
       targetPort: 8080
   selector:
-    app: frontend-7bbd468668-r5x4z
+    run: frontend
   type: NodePort
-status:
-  loadBalancer: {}
