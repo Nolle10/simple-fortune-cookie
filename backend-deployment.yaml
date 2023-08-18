@@ -21,6 +21,9 @@ spec:
           ports:
             - containerPort: 9000
               protocol: TCP
+          env:
+            - name: REDIS_DNS
+              value: redis
           resources: {}
       restartPolicy: Always
 status: {}
