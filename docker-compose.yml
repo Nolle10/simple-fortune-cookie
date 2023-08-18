@@ -15,3 +15,8 @@ services:
     ports:
       - "8080:8080"
 
+  redis:
+    image: redis:latest
+    ports: 
+      - "9000:6379"
+
