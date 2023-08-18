@@ -79,8 +79,8 @@ jobs:
     needs: [Docker-image]
     steps:
       - run: echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig
-      - run: kubectl --kubeconfig kubeconfig apply -f frontend-service.yaml
-      - run: kubectl --kubeconfig kubeconfig apply -f backend-service.yaml
-      - run: kubectl --kubeconfig kubeconfig apply -f backend-deployment.yaml
-      - run: kubectl --kubeconfig kubeconfig apply -f frontend-deployment.yaml
+      - run: kubectl --kubeconfig kubeconfig apply -f ./backend-deployment.yaml
+      - run: kubectl --kubeconfig kubeconfig apply -f ./backend-service.yaml
+      - run: kubectl --kubeconfig kubeconfig apply -f ./frontend-deployment.yaml
+      - run: kubectl --kubeconfig kubeconfig apply -f ./frontend-service.yaml
 
