@@ -73,3 +73,19 @@ jobs:
       - name: Push Docker Backend
         run: chmod +x ci/push-docker-backend.sh && ci/push-docker-backend.sh
 
+  Kubernetes-deploy:
+    name: Deploy with Kubernetes
+    runs-on: ubuntu-latest
+    needs: [Docker-image]
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v1
+    
+      - run: echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig
+      - run: kubectl --kubeconfig kubeconfig apply -f backend-deployment.yaml
+      - run: kubectl --kubeconfig kubeconfig apply -f backend-service.yaml
+      - run: kubectl --kubeconfig kubeconfig apply -f frontend-deployment.yaml
+      - run: kubectl --kubeconfig kubeconfig apply -f frontend-service.yaml
+

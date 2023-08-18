@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
         - image: ghcr.io/nolle10/simple-fortune-cookie-backend:latest
+          imagePullPolicy: Always
           name: backend
           ports:
             - containerPort: 9000
