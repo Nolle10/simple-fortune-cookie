@@ -15,7 +15,7 @@ spec:
         run: backend
     spec:
       containers:
-        - image: ghcr.io/nolle10/simple-fortune-cookie-app:latest
+        - image: ghcr.io/nolle10/simple-fortune-cookie-backend:latest
           name: backend
           ports:
             - containerPort: 9000

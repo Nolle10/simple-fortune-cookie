@@ -15,7 +15,7 @@ spec:
         run: frontend
     spec:
       containers:
-        - image: ghcr.io/nolle10/simple-fortune-cookie-app:latest
+        - image: ghcr.io/nolle10/simple-fortune-cookie-frontend:latest
           name: frontend
           ports:
             - containerPort: 8080
