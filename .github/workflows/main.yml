@@ -79,5 +79,5 @@ jobs:
     needs: [Docker-image]
     steps:
       - run: echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig
-      - run: kubectl --kubeconfig kubeconfig kubectl apply -f .
+      - run: kubectl --kubeconfig kubeconfig apply -f .
 
